@@ -1,0 +1,2 @@
+source namavenvnya/Scripts/activate
+FLASK_APP=app.py FLASK_DEBUG=1 python -m flask run = untuk restart server otomatis + menjalankan program

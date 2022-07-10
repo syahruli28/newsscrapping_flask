@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Scraper</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylescraper.css') }}">
+</head>
+<body>
+
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="logo">
+    <br>
+
+    <form action="/" method="post" name="formulir">
+
+        {% for message in get_flashed_messages() %}
+            <p id="p">{{ message }}</p>
+        {% endfor %}
+        
+        <br>
+        <input type="text" name="name" placeholder="keyword...">
+        <br>
+        <input type="submit" value="Scrape" id="scrape">
+        <br>
+        <!-- <div class="loader"></div> -->
+        <input type="submit" value="" id="loading" disabled>
+    </form>
+    
+    <script type="text/javascript">
+        
+        const form = document.forms['formulir'];
+
+        form.addEventListener('submit', (e) => {
+            // e.preventDefault();
+            document.getElementById("scrape").style.display = "none";
+            document.getElementById("loading").style.display = "inline";
+            document.getElementById("p").innerHTML = "Mohon tunggu, dalam proses scrapping...";
+        })
+
+
+        // function loading(){
+        //     document.getElementById("scrape").style.display = "none";
+        //     document.getElementById("loading").style.display = "block";
+        // }
+
+    </script>
+
+</body>
+</html>
